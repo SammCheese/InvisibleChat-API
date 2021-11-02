@@ -1,0 +1,15 @@
+{
+  "name": "invisiblechat-api",
+  "version": "1.0.0",
+  "description": "API for InvisibleChat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SammCheese#9500",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "stegcloak": "^1.1.1"
+  }
+}
