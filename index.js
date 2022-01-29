@@ -102,7 +102,7 @@ app.post('/', (req, res) => {
         }).end()
       }
 
-      var result = steggo.hide(`${secret}`, `${password}`, `${cover}`);
+      var result = steggo.hide(`${secret} ­­­`, `${password}`, `${cover}`);
       return res.status(200).json({response: `${result}`}).end()
     }
     // Decryption
@@ -118,13 +118,18 @@ app.post('/', (req, res) => {
 
       var result = steggo.reveal(`${secret}`, `${password}`);
       var foundUrls = "";
+      var isCorrect = false;
       if (result.match(UrlRegex)) {
         urls_found++;
         foundUrls = result.match(UrlRegex)[0];
       }
+      if (result.endsWith(' ­­­')) {
+         isCorrect = true;
+         result = result.replace(' ­­­', '')
+      }
 
 
-      return res.status(200).json({response : `${result}`, url: `${foundUrls}`}).end();
+      return res.status(200).json({response : `${result}`, url: `${foundUrls}`, isCorrectPassword: `${isCorrect}` }).end();
       // Others (Error)
     } else {
       api_errors++
