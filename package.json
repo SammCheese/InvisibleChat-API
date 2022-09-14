@@ -4,7 +4,7 @@
   "description": "API for InvisibleChat",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
   "author": "SammCheese#9500",
   "license": "MIT",
